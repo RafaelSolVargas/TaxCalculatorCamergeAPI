@@ -1,0 +1,65 @@
+root = true
+# CSharp formatting rules:
+[*.cs]
+
+charset = utf-8
+indent_style = space
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+dotnet_sort_system_directives_first = true
+# block_scoped: namespace Name {...} / file_scoped: using namespace Name; ...
+csharp_style_namespace_declarations = file_scoped:suggestion
+csharp_prefer_braces = true:suggestion
+csharp_new_line_before_open_brace = none
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+csharp_indent_block_contents = true
+csharp_space_after_keywords_in_control_flow_statements = true
+csharp_space_after_semicolon_in_for_statement = true
+csharp_space_after_keywords_in_control_flow_statements = true
+csharp_space_around_binary_operators = before_and_after
+
+csharp_new_line_before_else = false
+csharp_new_line_before_catch = false
+csharp_new_line_before_finally = false
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_members_in_anonymous_types = true
+csharp_new_line_between_query_expression_clauses = true
+
+# variáveis devem ser camelCase
+dotnet_naming_symbols.variables.applicable_kinds = local, field
+dotnet_naming_symbols.variables.applicable_accessibilities = *
+dotnet_naming_style.camel_case_style.capitalization = camel_case
+dotnet_naming_rule.variables_must_be_camel_case.symbols = variables
+dotnet_naming_rule.variables_must_be_camel_case.style = camel_case_style
+dotnet_naming_rule.variables_must_be_camel_case.severity = warning
+
+# métodos/funções devem ser PascalCased
+dotnet_naming_symbols.functions.applicable_kinds = method, local_function, class
+dotnet_naming_symbols.functions.applicable_accessibilities = *
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+dotnet_naming_rule.functions_must_be_pascal_case.symbols = functions
+dotnet_naming_rule.functions_must_be_pascal_case.style = pascal_case_style
+dotnet_naming_rule.functions_must_be_pascal_case.severity = warning
+
+# parâmetros devem ser all_lower
+dotnet_naming_symbols.variables.applicable_kinds = parameter
+dotnet_naming_symbols.variables.applicable_accessibilities = *
+dotnet_naming_style.all_lower_style.capitalization = all_lower
+dotnet_naming_rule.parameters_must_be_all_lower.symbols = parameters
+dotnet_naming_rule.parameters_must_be_all_lower.style = all_lower_style
+dotnet_naming_rule.parameters_must_be_all_lower.severity = warning
+
+# constantes devem ser all_upper_cased
+dotnet_naming_symbols.const.applicable_kinds = *
+dotnet_naming_symbols.const.applicable_accessibilities = const
+dotnet_naming_style.all_upper_style_style.capitalization = all_upper
+dotnet_naming_rule.constants_must_be_upper_cased.symbols = const
+dotnet_naming_rule.constants_must_be_upper_cased.style = all_upper_style
+dotnet_naming_rule.constants_must_be_upper_cased.severity = warning
+
+dotnet_diagnostic.IDE0055.severity = suggestion
+dotnet_diagnostic.IDE1006.severity = suggestion

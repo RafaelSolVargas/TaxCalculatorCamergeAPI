@@ -42,10 +42,10 @@ public static class SwaggerSetup {
                 }
             });
 
-            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            // var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            // var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
 
-            options.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
+            // options.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
 
         });
     }

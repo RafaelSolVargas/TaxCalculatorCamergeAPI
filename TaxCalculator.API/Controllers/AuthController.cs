@@ -17,6 +17,10 @@ public class AuthController : BaseController {
     }
 
     [HttpPost("login")]
+    [ProducesResponseType(typeof(LoginResponse), 200)]
+    [ProducesResponseType(typeof(BaseAPIResponse), 400)]
+    [ProducesResponseType(typeof(BaseAPIResponse), 401)]
+    [ProducesResponseType(typeof(BaseAPIResponse), 500)]
     public ActionResult<BaseAPIResponse> Login([FromBody] LoginRequest request) {
         var user = this.identityService.Login(request);
 

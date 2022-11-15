@@ -2,8 +2,9 @@ using TaxCalculator.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using TaxCalculator.DTOs.Responses;
+using TaxCalculator.Controllers;
 
-namespace TaxCalculator.API.Filters;
+namespace TaxCalculator.API.Authentication;
 public class JWTAuthenticationFilter : ActionFilterAttribute {
     private ITokenService tokenService;
 
@@ -13,6 +14,8 @@ public class JWTAuthenticationFilter : ActionFilterAttribute {
 
     public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next) {
         try {
+            var controller = (BaseController)context.Controller;
+
             var authString = (string)context.HttpContext.Request.Headers.Authorization;
             if (authString == null) {
                 this.SetUnauthorizedResult("Authentication Token not found", context);
@@ -34,6 +37,7 @@ public class JWTAuthenticationFilter : ActionFilterAttribute {
                 return;
             }
 
+            controller.requestUser = user;
             await next();
         } catch (Exception error) {
             this.SetUnauthorizedResult(error.Message, context);

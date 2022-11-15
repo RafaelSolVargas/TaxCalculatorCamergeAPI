@@ -4,4 +4,5 @@ namespace TaxCalculator.Repositories.Interfaces;
 
 public interface IUserRepository {
     User Get(int id);
+    List<User> GetAll();
 }

@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace TaxAPI.Controllers;
+namespace TaxCalculator.Controllers;
 
 [ApiController]
 [Route("")]
-public class WelcomeController : ControllerBase {
+public class WelcomeController : BaseController {
     [HttpGet]
     [Route("")]
     public ActionResult WelcomePage() {

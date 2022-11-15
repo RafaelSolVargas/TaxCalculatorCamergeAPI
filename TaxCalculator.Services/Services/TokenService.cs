@@ -27,7 +27,7 @@ public class TokenService : ITokenService {
 
         // Create an claimIdentity object to be converted to JWT
         var claims = new ClaimsIdentity();
-        claims.AddClaim(new Claim($"{this.userIDKey}", user.id!.ToString()));
+        claims.AddClaim(new Claim($"{this.userIDKey}", user.id!.ToString()!));
 
         // Cria as credenciais para geração do JWT
         var key = new SymmetricSecurityKey(jwtKey);

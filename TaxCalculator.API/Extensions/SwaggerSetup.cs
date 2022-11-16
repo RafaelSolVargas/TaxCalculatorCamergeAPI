@@ -9,7 +9,7 @@ public static class SwaggerSetup {
         services.AddSwaggerGen(options => {
             options.SwaggerDoc("v1", new OpenApiInfo {
                 Title = "Tax Calculator API",
-                Description = "An API to calculate an Tax",
+                Description = "An API to calculate a Tax",
                 Version = "v1"
             });
 

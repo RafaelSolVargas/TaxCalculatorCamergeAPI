@@ -10,13 +10,11 @@ using TaxCalculator.Services.Interfaces;
 namespace TaxCalculator.Services;
 
 public class TokenService : ITokenService {
-    private IIdentityService identityService;
     private IUserService userService;
     private string userIDKey = "userIDKey";
     private JwtOptions jwtOptions;
 
-    public TokenService(IIdentityService identityService, IUserService userService) {
-        this.identityService = identityService;
+    public TokenService(IUserService userService) {
         this.userService = userService;
         this.jwtOptions = Settings.GetInstance().jwtOptions!;
     }

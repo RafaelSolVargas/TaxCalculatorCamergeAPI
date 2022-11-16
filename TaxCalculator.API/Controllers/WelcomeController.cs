@@ -11,4 +11,11 @@ public class WelcomeController : BaseController {
     public ActionResult WelcomePage() {
         return StatusCode(StatusCodes.Status200OK, "Welcome to Tax API.");
     }
+
+    [HttpGet]
+    [Route("showmethecode")]
+    [ProducesResponseType(typeof(string), 200)]
+    public ActionResult ShowMeTheCode() {
+        return StatusCode(StatusCodes.Status200OK, "https://github.com/RafaelSolVargas/TaxCalculatorCamergeAPI");
+    }
 }

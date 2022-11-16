@@ -8,7 +8,7 @@ using TaxCalculator.API.Authentication;
 namespace TaxCalculator.API.IoC;
 
 public static class NativeInjector {
-    public static void RegisterServices(this IServiceCollection services, IConfiguration configuration) {
+    public static void ConfigureNativeInjector(this IServiceCollection services, IConfiguration configuration) {
         // Services
         services.AddScoped<ITaxCalculatorService, TaxCalculatorService>();
         services.AddScoped<ITokenService, TokenService>();
@@ -19,6 +19,8 @@ public static class NativeInjector {
         services.AddScoped<IUserRepository, UserRepository>();
         // Filters
         services.AddScoped<JWTAuthenticationFilter>();
+        // Decorators
+        services.Decorate<ITaxCalculatorRepository, TaxCalculatorCache>();
     }
 }
 

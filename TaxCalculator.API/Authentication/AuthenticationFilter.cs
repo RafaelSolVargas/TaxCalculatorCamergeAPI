@@ -16,7 +16,7 @@ public class JWTAuthenticationFilter : ActionFilterAttribute {
         try {
             var controller = (BaseController)context.Controller;
 
-            var authString = (string)context.HttpContext.Request.Headers.Authorization;
+            var authString = (string)context.HttpContext.Request.Headers.Authorization!;
             if (authString == null) {
                 this.SetUnauthorizedResult("Authentication Token not found", context);
                 return;

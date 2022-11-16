@@ -17,9 +17,11 @@ builder.Services.AddSwagger();
 builder.Services.AddEndpointsApiExplorer();
 
 // Register the dependency services, repositories and filters
-builder.Services.RegisterServices(builder.Configuration);
+builder.Services.ConfigureNativeInjector(builder.Configuration);
 builder.Services.AddHttpContextAccessor();
 
+// Register the Memory Cache
+builder.Services.AddMemoryCache();
 
 var app = builder.Build();
 
